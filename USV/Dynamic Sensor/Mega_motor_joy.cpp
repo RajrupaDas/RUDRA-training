@@ -1,7 +1,7 @@
 #include <SPI.h>
 #include <nRF24L01.h>
 #include <RF24.h>
-#include "PIDController.h"
+#include "PIDpilot.h"
 
 const int motorAPin = 9; // PWM pin for Motor A
 const int motorBPin = 10; // PWM pin for Motor B
