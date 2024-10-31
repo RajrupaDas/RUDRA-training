@@ -45,10 +45,12 @@ def run_obstacle_detection():
         gray_right_frame = cv2.cvtColor(right_frame, cv2.COLOR_BGR2GRAY)
 
         disparity_map = stereo_bm.compute(gray_left_frame, gray_right_frame).astype(np.float32) / 16.0
+       
+        filtered_disparity = cv2.medianBlur(disparity_map, 5) 
 
         depth_image = (focal_length_value * baseline_value) / (disparity_map + 1e-5)
 
-        _, binary_threshold = cv2.threshold(gray_left_frame, 50, 255, cv2.THRESH_BINARY)
+        _, binary_threshold = cv2.threshold(gray_left_frame, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
         contours_found, _ = cv2.findContours(binary_threshold, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
         if contours_found:
