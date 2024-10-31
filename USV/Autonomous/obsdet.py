@@ -4,15 +4,15 @@ from filterpy.kalman import KalmanFilter
 import math
 
 def run_obstacle_detection():
-    calibration_data = np.load("stereo_calibration_data.npz")
-    left_camera_matrix = calibration_data['left_camera_matrix']
-    left_distortion = calibration_data['left_distortion']
+    calibration_data= np.load("stereo_calibration_data.npz")
+    left_camera_matrix= calibration_data['left_camera_matrix']
+    left_distortion= calibration_data['left_distortion']
     right_camera_matrix = calibration_data['right_camera_matrix']
-    right_distortion = calibration_data['right_distortion']
-    rotation_matrix = calibration_data['rotation_matrix']
-    translation_vector = calibration_data['translation_vector']
-    focal_length_value = calibration_data['focal_length']
-    baseline_value = calibration_data['baseline']
+    right_distortion= calibration_data['right_distortion']
+    rotation_matrix= calibration_data['rotation_matrix']
+    translation_vector= calibration_data['translation_vector']
+    focal_length_value= calibration_data['focal_length']
+    baseline_value= calibration_data['baseline']
 
     left_camera = cv2.VideoCapture(0)
     right_camera = cv2.VideoCapture(1)
