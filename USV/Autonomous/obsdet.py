@@ -46,7 +46,7 @@ def run_obstacle_detection():
 
         disparity_map = stereo_bm.compute(gray_left_frame, gray_right_frame).astype(np.float32) / 16.0
        
-        filtered_disparity = cv2.medianBlur(disparity_map, 5) 
+        filtered_disparity = cv2.medianBlur(disparity_map, 7) 
 
         depth_image = (focal_length_value * baseline_value) / (disparity_map + 1e-5)
 
