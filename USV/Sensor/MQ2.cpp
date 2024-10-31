@@ -12,6 +12,6 @@ void loop() {
   float concentration= voltage *calibrationFactor;
   float concentration_ratio= concentration /1.9;
   
-  Serial.println(concentration);
+  Serial.println(concentration_ratio);
   delay(500);
 }
