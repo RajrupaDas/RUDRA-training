@@ -5,13 +5,13 @@ import math
 
 def run_obstacle_detection():
     
-    focal_length_value = 1.0  #for this specific dataset
+    focal_length_value = 1.0  #
     baseline_value = 0.1  
     left_camera_matrix = np.array([[focal_length_value, 0, 0],
                                     [0, focal_length_value, 0],
                                     [0, 0, 1]], dtype=np.float32)
 
-    left_distortion = np.zeros(5) #no distortion in this set
+    left_distortion = np.zeros(5) 
     right_camera_matrix = left_camera_matrix  
     right_distortion = np.zeros(5) 
     rotation_matrix = np.eye(3)  
@@ -73,8 +73,8 @@ def run_obstacle_detection():
 
     print("Depth Image - Min:", np.min(depth_image), "Max:", np.max(depth_image))
 
-    #desparity map output
-    disparity_pgm = np.clip(filtered_disparity * 16, 0, 65535).astype(np.uint16) #converts to uint16 for .pmg
+   
+    disparity_pgm = np.clip(filtered_disparity * 16, 0, 65535).astype(np.uint16) #uint16 for .pmg
     cv2.imwrite('disparity_output.pgm', disparity_pgm)
 
     
